@@ -33,10 +33,15 @@ CUDA_VISIBLE_DEVICES=0,1,2,3  python3  train.py --ddp-backend=no_c10d  data-bin/
         --max-tokens  4096  --save-dir checkpoints/$save  --save-interval-updates 1000 \
         --update-freq 2 --no-progress-bar --log-format json --log-interval 25  
 ```
+
 Add `--share-decoder-input-output-embed` for the WMT17 Zh-En.
+
 Add `--share-all-embeddings`  for the WMT16 En-De and En-Ro.
+
 Set `--dropout` 0.3 for NIST Zh-En and 0.1 for other datasets.
+
 `--seer_dropout` is the dropout probablity for the seer decoder. 0.2 for the NIST Zh-En and WMT16 En-Ro, 0.1 for the WMT16 En-De and WMT17 Zh-En.
+
 `--alpha` is the hyperparameter in the total loss function. 0.25 for the NIST Zh-En and 0.5 for other datasets.
 
 - Generate the translation 
